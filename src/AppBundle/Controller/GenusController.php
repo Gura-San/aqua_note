@@ -8,6 +8,7 @@
 
 	namespace AppBundle\Controller;
 
+	use Symfony\Component\HttpFoundation\JsonResponse;
 	use Symfony\Component\Routing\Annotation\Route;
 	use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 	use Symfony\Component\HttpFoundation\Response;
@@ -20,22 +21,28 @@
 		 */
 		public function anotherAction( $genusName )
 		{
-			$notes = [
-				'Octopus asked a riddle, outsmarted me',
-				'I counted 8 legs... as they wrapped around me',
-				'Inked!'
-			];
 
 			return $this->render( 'genus/show.html.twig', [
 				'name' => $genusName,
-				'notes' => $notes
 			] );
 		}
 
 		/**
 		 * @Route("/genus/{genusName}/notes", methods={"GET"})
 		 */
-		public function getNotesAction() {
+		public function getNotesAction()
+		{
 
+			$notes = [
+				[ 'id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/image/leanna.jpeg', 'note' => 'Octopus asked me a riddle, outsmarted me', 'date' => 'Dec. 10, 2019' ],
+				[ 'id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/image/ryan.jpeg', 'note' => 'I counted 8 legs...as they wrapped around me', 'date' => 'Dec. 11, 2019' ],
+				[ 'id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/image/leanna.jpeg', 'note' => 'Inked', 'date' => 'Dec. 12, 2019' ],
+			];
+
+			$data = [
+				'notes' => $notes,
+			];
+
+			return new JsonResponse( $data );
 		}
 	}
