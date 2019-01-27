@@ -8,17 +8,34 @@
 
 	namespace AppBundle\Controller;
 
-	use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+	use Symfony\Component\Routing\Annotation\Route;
+	use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 	use Symfony\Component\HttpFoundation\Response;
 
 
-	class GenusController
+	class GenusController extends Controller
 	{
 		/**
-		 * @Route("/genus")
+		 * @Route("/genus/{genusName}")
 		 */
-		public function showAction()
+		public function anotherAction( $genusName )
 		{
-			return new Response('Under the Sea!');
+			$notes = [
+				'Octopus asked a riddle, outsmarted me',
+				'I counted 8 legs... as they wrapped around me',
+				'Inked!'
+			];
+
+			return $this->render( 'genus/show.html.twig', [
+				'name' => $genusName,
+				'notes' => $notes
+			] );
+		}
+
+		/**
+		 * @Route("/genus/{genusName}/notes", methods={"GET"})
+		 */
+		public function getNotesAction() {
+
 		}
 	}
