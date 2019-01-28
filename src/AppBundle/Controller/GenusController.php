@@ -28,15 +28,15 @@
 		}
 
 		/**
-		 * @Route("/genus/{genusName}/notes", methods={"GET"})
+		 * @Route("/genus/{genusName}/notes", name="genus_show_notes", methods={"GET"})
 		 */
 		public function getNotesAction()
 		{
 
 			$notes = [
-				[ 'id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/image/leanna.jpeg', 'note' => 'Octopus asked me a riddle, outsmarted me', 'date' => 'Dec. 10, 2019' ],
-				[ 'id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/image/ryan.jpeg', 'note' => 'I counted 8 legs...as they wrapped around me', 'date' => 'Dec. 11, 2019' ],
-				[ 'id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/image/leanna.jpeg', 'note' => 'Inked', 'date' => 'Dec. 12, 2019' ],
+				[ 'id' => 1, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Octopus asked me a riddle, outsmarted me', 'date' => 'Dec. 10, 2019' ],
+				[ 'id' => 2, 'username' => 'AquaWeaver', 'avatarUri' => '/images/ryan.jpeg', 'note' => 'I counted 8 legs...as they wrapped around me', 'date' => 'Dec. 11, 2019' ],
+				[ 'id' => 3, 'username' => 'AquaPelham', 'avatarUri' => '/images/leanna.jpeg', 'note' => 'Inked', 'date' => 'Dec. 12, 2019' ],
 			];
 
 			$data = [
